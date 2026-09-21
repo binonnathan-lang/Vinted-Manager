@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="apple-mobile-web-app-capable" content="yes"><meta name="theme-color" content="#6c5ce7">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<title>Vinted Manager</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="authScreen" class="auth-screen"><div class="auth-card">
+<div class="brand auth-brand">Vinted <span>Manager</span></div><h1>Bienvenue 👋</h1>
+<p id="authMessage">Connectez-vous pour accéder à votre espace Vinted Manager.</p>
+<form id="authForm"><label>Email<input id="authEmail" type="email" autocomplete="email" required></label><label>Mot de passe<input id="authPassword" type="password" autocomplete="current-password" required minlength="6"></label><button class="btn primary auth-submit" id="authSubmit" type="submit">Se connecter</button></form>
+<button class="btn auth-secondary" id="authToggle" type="button">Créer un compte</button><button class="btn auth-secondary" id="authReset" type="button">Mot de passe oublié</button><div id="authStatus" class="auth-status"></div>
+</div></div>
+<div class="app" id="appShell"><aside class="side"><div class="brand">Vinted <span>Manager</span></div><div class="nav" id="nav"></div></aside><main class="main"><div class="top"><div><h1 id="title">Tableau de bord</h1><div class="subline">Gestion de votre activité Vinted · version V1</div></div><div class="actions"><input class="btn searchall" id="globalSearch" placeholder="⌕ Rechercher partout…" oninput="globalSearch(this.value)"><button class="btn notify" onclick="showNotifications()">🔔<span id="notifBadge" class="badge" style="display:none">0</span></button><button class="btn" onclick="openCalculators()">🧮 Calculs</button><button class="btn" onclick="window.vintedAuth&&window.vintedAuth.signOut()">↪ Déconnexion</button><button class="btn primary" onclick="quickAdd()">＋ Ajouter</button></div></div><div id="view"></div></main></div>
+<div class="modal" id="modal"><div class="modalbox"><div class="modalhead"><h2 id="modalTitle"></h2><button class="close" onclick="closeModal()">×</button></div><div id="modalBody"></div></div></div>
+<script src="ocr.js"></script><script src="config.js"></script><script src="app.js"></script><script src="auth.js"></script>
+</body></html>
